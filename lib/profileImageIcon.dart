@@ -8,6 +8,7 @@ class ProfileImageIcon extends StatelessWidget {
     // TODO: implement build
     return Container(
                       margin: EdgeInsets.all(20.0),
+                      width: 190,
                       child: Stack(
                         children: <Widget>[
                           Container(
@@ -15,7 +16,7 @@ class ProfileImageIcon extends StatelessWidget {
                             alignment: Alignment.center,
                             child: CircleAvatar(
                             radius: 65,
-                            backgroundColor: Colors.indigoAccent,
+                            backgroundColor: Color(0xff3A60D5),
                             child: CircleAvatar(
                                 radius: 60,
                                 backgroundImage: NetworkImage(_imageURL),
@@ -28,7 +29,7 @@ class ProfileImageIcon extends StatelessWidget {
                               onPressed: () {},
                               child: Icon(
                                 Icons.edit,
-                                color: Colors.indigoAccent,
+                                color: Color(0xff3A60D5),
                                 size: 25.0
                               ),
                               shape: CircleBorder(),
