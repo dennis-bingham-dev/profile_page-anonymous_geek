@@ -20,8 +20,8 @@ class MyApp extends StatelessWidget {
                     Text(
                       'Edit Profile',
                       style: TextStyle(
-                        fontSize: 24.0,
-                        color: Colors.indigoAccent[400],
+                        fontSize: 28.0,
+                        color: Colors.indigoAccent,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
                             alignment: Alignment.center,
                             child: CircleAvatar(
                             radius: 65,
-                            backgroundColor: Colors.indigoAccent[400],
+                            backgroundColor: Colors.indigoAccent,
                             child: CircleAvatar(
                                 radius: 60,
                                 backgroundImage: NetworkImage('https://image.shutterstock.com/image-photo/portrait-smiling-red-haired-millennial-260nw-1194497251.jpg') ,
@@ -47,7 +47,7 @@ class MyApp extends StatelessWidget {
                               onPressed: () {},
                               child: Icon(
                                 Icons.edit,
-                                color: Colors.indigoAccent[400],
+                                color: Colors.indigoAccent,
                                 size: 25.0
                               ),
                               shape: CircleBorder(),
@@ -58,6 +58,7 @@ class MyApp extends StatelessWidget {
                           ),
                         ]),
                     ),
+
                   ],)
               ),
       ),
