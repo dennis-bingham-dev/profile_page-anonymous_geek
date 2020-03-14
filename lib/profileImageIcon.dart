@@ -7,38 +7,38 @@ class ProfileImageIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Container(
-                      margin: EdgeInsets.all(20.0),
-                      width: 190,
-                      child: Stack(
-                        children: <Widget>[
-                          Container(
-                            padding: EdgeInsets.all(5.0),
-                            alignment: Alignment.center,
-                            child: CircleAvatar(
-                            radius: 65,
-                            backgroundColor: Color(0xff3A60D5),
-                            child: CircleAvatar(
-                                radius: 60,
-                                backgroundImage: NetworkImage(_imageURL),
+            margin: EdgeInsets.all(20.0),
+            width: 190,
+            child: Stack(
+              children: <Widget>[
+                Container(
+                  padding: EdgeInsets.all(5.0),
+                  alignment: Alignment.center,
+                  child: CircleAvatar(
+                          radius: 75,
+                          backgroundColor: Color(0xff3A60D5),
+                          child: CircleAvatar(
+                                  radius: 70,
+                                  backgroundImage: NetworkImage(_imageURL),
+                                ),
                               ),
                             ),
-                          ),
-                          Container(
-                            alignment: Alignment.topRight,
-                            child: RawMaterialButton(
-                              onPressed: () {},
-                              child: Icon(
-                                Icons.edit,
+                        Container(
+                          alignment: Alignment.topRight,
+                          child: RawMaterialButton(
+                            onPressed: () {},
+                            child: Icon(
+                              Icons.edit,
                                 color: Color(0xff3A60D5),
                                 size: 25.0
                               ),
-                              shape: CircleBorder(),
-                              elevation: 2.0,
-                              fillColor: Colors.white,
-                              padding: const EdgeInsets.all(5.0),
-                            ),
+                            shape: CircleBorder(),
+                            elevation: 2.0,
+                            fillColor: Colors.white,
+                            padding: const EdgeInsets.all(5.0),
                           ),
-                        ]),
+                        ),
+                      ]),
                     );
   }
 }
