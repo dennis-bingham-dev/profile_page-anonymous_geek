@@ -1,16 +1,21 @@
 # profile_page
 
-A new Flutter project.
+A profile page mock up.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+If you already have flutter installed and using a Mac you can type:
+```bash
+$ open -a simulator
+```
+this will open the iPhone simulator on your machine. I have used an iPhone 11 simulator for my testing.
 
-A few resources to get you started if this is your first Flutter project:
+If you need to install flutter see docs here:
+[flutter docs](https://flutter.dev/docs/get-started/install)
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+You can run the code by navigating to the location where the code is located after pulling it from github by typing:
+```bash
+$ flutter run
+```
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+If you are using VScode for development you can click run and run without debugging and that will also run the code on the simulator.
