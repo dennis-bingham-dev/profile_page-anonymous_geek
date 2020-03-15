@@ -1,12 +1,52 @@
 import 'package:flutter/material.dart';
 
+import './UpdateName.dart';
+import './UpdatePhone.dart';
+import './UpdateEmail.dart';
+import './UpdateAbout.dart';
+
 class InfoTile extends StatelessWidget {
+  BuildContext ctx;
   final String title;
   final String item;
-  final Function action;
+  final String action;
+  Function _actionFunction;
 
-  InfoTile(this.title, this.item, this.action);
+  void updateName() {
+    Navigator.push(ctx, MaterialPageRoute(builder: (context) => UpdateName()));
+  }
+  void updateNumber() {
+    Navigator.push(ctx, MaterialPageRoute(builder: (context) => UpdatePhone()));
+  }
+  void updateEmail() {
+    Navigator.push(ctx, MaterialPageRoute(builder: (context) => UpdateEmail()));
+  }
+  void updateAbout() {
+    Navigator.push(ctx, MaterialPageRoute(builder: (context) => UpdateAbout()));
+  }
 
+  InfoTile(this.ctx, this.title, this.item, this.action) {
+    switch (action) {
+      case 'updateName':
+        _actionFunction = updateName;
+        break;
+      case 'updatePhone':
+        _actionFunction = updateNumber;
+        break;
+      case 'updateEmail':
+        _actionFunction = updateEmail;
+        break;
+      case 'updateAbout':
+        _actionFunction = updateAbout;
+        break;
+      default:
+        _actionFunction = null;
+        break;
+    }
+  }
+  // InfoTile.phone()
+// InfoTile.email()
+  // InfoTile.about()
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -32,7 +72,7 @@ class InfoTile extends StatelessWidget {
                 size: 30.0,
             ),
             enabled: action == null ? false : true,
-            onTap: action,
+            onTap: _actionFunction,
           );
   }
 }

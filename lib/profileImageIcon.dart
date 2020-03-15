@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import './UpdateProfileImage.dart';
+
 class ProfileImageIcon extends StatelessWidget {
   final String _imageURL = 'https://www.rd.com/wp-content/uploads/2017/09/01-shutterstock_476340928-Irina-Bg-1024x683.jpg';
 
@@ -26,7 +28,9 @@ class ProfileImageIcon extends StatelessWidget {
                         Container(
                           alignment: Alignment.topRight,
                           child: RawMaterialButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => UpdateProfileImage()));
+                            },
                             child: Icon(
                               Icons.edit,
                                 color: Color(0xff3A60D5),
