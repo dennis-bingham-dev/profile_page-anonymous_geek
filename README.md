@@ -18,4 +18,4 @@ You can run the code by navigating to the location where the code is located aft
 $ flutter run
 ```
 
-If you are using VScode for development you can click run and run without debugging and that will also run the code on the simulator.
+If you are using VScode for development you can click run and then click run without debugging in the drop-down and that will also run the code on the simulator.
