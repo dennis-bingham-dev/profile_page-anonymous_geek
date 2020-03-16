@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 
 import './InfoTile.dart';
+import './Name.dart';
 
 class ItemList extends StatelessWidget {
   List items;
+  Name name;
+  String phone;
+  String email;
+  String about;
 
-  ItemList(this.items);
+  ItemList(this.items, this.name, this.phone, this.email, this.about);
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +38,10 @@ class ItemList extends StatelessWidget {
                           items[index]['title'],
                           items[index]['item'],
                           items[index]['action'],
+                          name,
+                          phone,
+                          email,
+                          about,
                         ),
                       );
                     },

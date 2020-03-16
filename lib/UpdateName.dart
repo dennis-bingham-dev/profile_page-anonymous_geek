@@ -1,18 +1,29 @@
 import 'package:flutter/material.dart';
 
 import './CustomBackButton.dart';
+import './Name.dart';
 
 class UpdateName extends StatefulWidget {
+  final Name name;
+  final String phone;
+  final String  email;
+  final String about;
+
+  UpdateName(this.name, this.phone, this.email, this.about);
   @override
-  _UpdateNameState createState() => new _UpdateNameState();
+  _UpdateNameState createState() => new _UpdateNameState(name, phone, email, about);
 }
 
 class _UpdateNameState extends State<UpdateName> {
-  String firstName = "";
-  String lastName = "";
+  Name name;
+  String phone;
+  String  email;
+  String about;
+
+  _UpdateNameState(this.name, this.phone, this.email, this.about);
 
   void _update() {
-    print('Updated button pushed');
+    Navigator.push(context, MaterialPageRoute(builder: (context) => UpdateName(name, phone, email, about)));
   }
 
   @override
@@ -54,7 +65,7 @@ class _UpdateNameState extends State<UpdateName> {
                                   ),
                                   onChanged: (String str) {
                                     setState(() {
-                                      firstName = str;
+                                      name.setFirstName(str);
                                     });
                                   },
                                 ),
@@ -71,7 +82,7 @@ class _UpdateNameState extends State<UpdateName> {
                                   ),
                                   onChanged: (String str) {
                                     setState(() {
-                                      lastName = str;
+                                      name.setLastName(str);
                                     });
                                   },
                                 ),
