@@ -4,8 +4,13 @@ import './InfoTile.dart';
 
 class ItemList extends StatelessWidget {
   List items;
+  String firstName;
+  String lastName;
+  String phone;
+  String email;
+  String about;
 
-  ItemList(this.items);
+  ItemList(this.items, this.firstName, this.lastName, this.phone, this.email, this.about);
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +38,11 @@ class ItemList extends StatelessWidget {
                           items[index]['title'],
                           items[index]['item'],
                           items[index]['action'],
+                          firstName,
+                          lastName,
+                          phone,
+                          email,
+                          about,
                         ),
                       );
                     },

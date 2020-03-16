@@ -1,37 +1,55 @@
 import 'package:flutter/material.dart';
 // import 'package:shared_preferences/shared_preferences.dart';
-// import 'package:flutter/scheduler.dart';
+import 'package:flutter/scheduler.dart';
 
-import './UpdateName.dart';
 import './profileImageIcon.dart';
 import './ItemList.dart';
 
 class ProfilePage extends StatefulWidget {
-  ProfilePage();
+  final String firstName;
+  final String lastName;
+  final String phone;
+  final String email;
+  final String about;
+
+  ProfilePage(this.firstName, this.lastName, this.phone, this.email, this.about);
 
   @override
-  _ProfilePageState createState() => new _ProfilePageState();
+  _ProfilePageState createState() => new _ProfilePageState(firstName, lastName, phone, email, about);
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  static final String name = 'Micah Smith';
-  static final String phone = '(208) 206-5039';
-  static final String  email = 'micahsmith@gmail.com';
-  static final String about = "Hi, my name is Micah Smith. I am from Mesa but go to school in Salt Lake City. I make this drive all the time and have plenty of room.";
+  final String firstName;
+  final String lastName;
+  final String phone;
+  final String  email;
+  final String about;
 
-  static void _action() {
-    print('button pressed');
+  static String _firstName;
+  static String _lastName;
+  static String _phone;
+  static String _email;
+  static String _about;
+
+  _ProfilePageState(this.firstName, this.lastName, this.phone, this.email, this.about);
+
+  initState() {
+    super.initState();
+      setState(() {
+        _firstName = firstName == null ? '' : firstName;
+        _lastName = lastName == null ? '' : lastName;
+        _phone = phone == null ? '' : phone;
+        _email = email == null ? '' : email;
+        _about = about == null ? '' : about;
+      });
   }
 
-  void _updateName() {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => UpdateName()));
-  }
 
   List info = [
-    {'title': 'Name', 'item': name, 'action': 'updateName'},
-    {'title': 'Phone', 'item': phone, 'action': 'updatePhone'},
-    {'title': 'Email', 'item': email, 'action': 'updateEmail'},
-    {'title': 'Tell us about yourself', 'item': about, 'action': 'updateAbout'},
+    {'title': 'Name', 'item': '$_firstName $_lastName', 'action': 'updateName'},
+    {'title': 'Phone', 'item': '$_phone', 'action': 'updatePhone'},
+    {'title': 'Email', 'item': '$_email', 'action': 'updateEmail'},
+    {'title': 'Tell us about yourself', 'item': '$_about', 'action': 'updateAbout'},
   ];
 
   // This widget is the root of your application.
@@ -52,7 +70,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         ),
                       ),
                       ProfileImageIcon(),
-                      ItemList(info),
+                      ItemList(info, firstName, lastName, phone, email, about),
                     ],
                   ),
                 ),

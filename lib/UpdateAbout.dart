@@ -1,18 +1,33 @@
 import 'package:flutter/material.dart';
 
 import './CustomBackButton.dart';
+import './ProfilePage.dart';
 
 class UpdateAbout extends StatefulWidget {
+String firstName;
+  String lastName;
+  String phone;
+  String email;
+  String about;
+
+  UpdateAbout(this.firstName, this.lastName, this.phone, this.email, this.about);
+
   @override
-  _UpdateAboutState createState() => new _UpdateAboutState();
+  _UpdateAboutState createState() => new _UpdateAboutState(firstName, lastName, phone, email, about);
 }
 
 class _UpdateAboutState extends State<UpdateAbout> {
+  String firstName;
+  String lastName;
+  String phone;
+  String email;
   String about;
-  String _hintText = 'Write a little bit about yourself. Do you like chatting? are you a smoker? Do you bring pets with you? Etc.';
+  static final String _hintText = 'Write a little bit about yourself. Do you like chatting? are you a smoker? Do you bring pets with you? Etc.';
+
+  _UpdateAboutState(this.firstName, this.lastName, this.phone, this.email, this.about);
 
   void _update() {
-    print('Updated button pushed');
+    Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilePage(firstName, lastName, phone, email, about)));
   }
 
   @override
