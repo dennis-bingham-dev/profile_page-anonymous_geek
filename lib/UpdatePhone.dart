@@ -1,17 +1,31 @@
 import 'package:flutter/material.dart';
 
 import './CustomBackButton.dart';
+import './ProfilePage.dart';
 
 class UpdatePhone extends StatefulWidget {
+  String firstName;
+  String lastName;
+  String phone;
+  String email;
+  String about;
+
+  UpdatePhone(this.firstName, this.lastName, this.phone, this.email, this.about);
   @override
-  _UpdatePhoneState createState() => new _UpdatePhoneState();
+  _UpdatePhoneState createState() => new _UpdatePhoneState(firstName, lastName, phone, email, about);
 }
 
 class _UpdatePhoneState extends State<UpdatePhone> {
-  String phoneNumber = "";
+  String firstName;
+  String lastName;
+  String phone;
+  String email;
+  String about;
+
+  _UpdatePhoneState(this.firstName, this.lastName, this.phone, this.email, this.about);
 
   void _update() {
-    print('Updated button pushed');
+    Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilePage(firstName, lastName, phone, email, about)));
   }
 
   @override
@@ -53,7 +67,7 @@ class _UpdatePhoneState extends State<UpdatePhone> {
                                   ),
                                   onChanged: (String str) {
                                     setState(() {
-                                      phoneNumber = str;
+                                      phone = str;
                                     });
                                   },
                                 ),

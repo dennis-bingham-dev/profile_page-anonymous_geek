@@ -4,21 +4,21 @@ import './UpdateName.dart';
 import './UpdatePhone.dart';
 import './UpdateEmail.dart';
 import './UpdateAbout.dart';
-import './Name.dart';
 
 class InfoTile extends StatelessWidget {
   BuildContext ctx;
-  final String title;
-  final String item;
-  final String action;
+  String title;
+  String item;
+  String action;
   Function _actionFunction;
 
-  Name name;
+  String firstName;
+  String lastName;
   String phone;
   String email;
   String about;
 
-  InfoTile(this.ctx, this.title, this.item, this.action, this.name, this.phone, this.email, this.about) {
+  InfoTile(this.ctx, this.title, this.item, this.action, this.firstName, this.lastName, this.phone, this.email, this.about) {
     switch (action) {
       case 'updateName':
         _actionFunction = updateName;
@@ -39,16 +39,16 @@ class InfoTile extends StatelessWidget {
   }
 
   void updateName() {
-    Navigator.push(ctx, MaterialPageRoute(builder: (context) => UpdateName(name, phone, email, about)));
+    Navigator.push(ctx, MaterialPageRoute(builder: (context) => UpdateName(firstName, lastName, phone, email, about)));
   }
   void updateNumber() {
-    Navigator.push(ctx, MaterialPageRoute(builder: (context) => UpdatePhone()));
+    Navigator.push(ctx, MaterialPageRoute(builder: (context) => UpdatePhone(firstName, lastName, phone, email, about)));
   }
   void updateEmail() {
-    Navigator.push(ctx, MaterialPageRoute(builder: (context) => UpdateEmail()));
+    Navigator.push(ctx, MaterialPageRoute(builder: (context) => UpdateEmail(firstName, lastName, phone, email, about)));
   }
   void updateAbout() {
-    Navigator.push(ctx, MaterialPageRoute(builder: (context) => UpdateAbout()));
+    Navigator.push(ctx, MaterialPageRoute(builder: (context) => UpdateAbout(firstName, lastName, phone, email, about)));
   }
   // InfoTile.phone()
 // InfoTile.email()

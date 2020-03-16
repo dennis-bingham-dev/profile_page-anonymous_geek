@@ -13,7 +13,7 @@ class _UpdateImageState extends State<UpdateProfileImage> {
   String lastName = "";
 
   void _update() {
-    print('Updated button pushed');
+    Navigator.pop(context);
   }
 
   @override

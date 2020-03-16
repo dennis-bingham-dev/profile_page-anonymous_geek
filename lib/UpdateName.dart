@@ -1,29 +1,31 @@
 import 'package:flutter/material.dart';
 
+import './ProfilePage.dart';
 import './CustomBackButton.dart';
-import './Name.dart';
 
 class UpdateName extends StatefulWidget {
-  final Name name;
+  final String firstName;
+  final String lastName;
   final String phone;
   final String  email;
   final String about;
 
-  UpdateName(this.name, this.phone, this.email, this.about);
+  UpdateName(this.firstName, this.lastName, this.phone, this.email, this.about);
   @override
-  _UpdateNameState createState() => new _UpdateNameState(name, phone, email, about);
+  _UpdateNameState createState() => new _UpdateNameState(this.firstName, this.lastName, phone, email, about);
 }
 
 class _UpdateNameState extends State<UpdateName> {
-  Name name;
+  String firstName;
+  String lastName;
   String phone;
   String  email;
   String about;
 
-  _UpdateNameState(this.name, this.phone, this.email, this.about);
+  _UpdateNameState(this.firstName, this.lastName, this.phone, this.email, this.about);
 
   void _update() {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => UpdateName(name, phone, email, about)));
+    Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilePage(firstName, lastName, phone, email, about)));
   }
 
   @override
@@ -65,7 +67,7 @@ class _UpdateNameState extends State<UpdateName> {
                                   ),
                                   onChanged: (String str) {
                                     setState(() {
-                                      name.setFirstName(str);
+                                      firstName = str;
                                     });
                                   },
                                 ),
@@ -82,7 +84,7 @@ class _UpdateNameState extends State<UpdateName> {
                                   ),
                                   onChanged: (String str) {
                                     setState(() {
-                                      name.setLastName(str);
+                                      lastName = str;
                                     });
                                   },
                                 ),
